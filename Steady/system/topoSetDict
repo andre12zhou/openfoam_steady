@@ -1,0 +1,141 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    {
+        name    Vs;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            boxes
+            (
+                (0.0000 1.1 0.0000) (10.0000 1.2 5.5)
+            );
+        }
+    }
+    {
+        name    ps1;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (1.5250 1.1 0.4000) (2.8250 1.2 1.7000);
+        }
+    }
+    {
+        name    ps2;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (4.3500 1.1 0.4000) (5.6500 1.2 1.7000);
+        }
+    }
+    {
+        name    ps3;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (7.1750 1.1 0.4000) (8.4750 1.2 1.7000);
+        }
+    }
+    {
+        name    ps4;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (1.5250 1.1 2.1000) (2.8250 1.2 3.4000);
+        }
+    }
+    {
+        name    ps5;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (4.3500 1.1 2.1000) (5.6500 1.2 3.4000);
+        }
+    }
+    {
+        name    ps6;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (7.1750 1.1 2.1000) (8.4750 1.2 3.4000);
+        }
+    }
+    {
+        name    ps7;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (1.5250 1.1 3.8000) (2.8250 1.2 5.1000);
+        }
+    }
+    {
+        name    ps8;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (4.3500 1.1 3.8000) (5.6500 1.2 5.1000);
+        }
+    }
+    {
+        name    ps9;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (7.1750 1.1 3.8000) (8.4750 1.2 5.1000);
+        }
+    }
+    {
+        name    targetRoom;
+        type    cellSet;
+        action  new;
+        source  boxToCell;
+        sourceInfo
+        {
+            box (0.0 0.0 0.0) (10 2.7 5.5);
+        }
+    }
+    {
+        name    room;
+        type    cellZoneSet;
+        action  new;
+        source  setToCellZone;
+        set 	 targetRoom;
+    }
+);
+
+// ************************************************************************* //

@@ -1,0 +1,22 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+runApplication blockMesh
+runApplication snappyHexMesh -overwrite
+runApplication topoSet
+
+# Serial
+cp -r 0.orig 0
+#cp 0/T.orig 0/T
+#runApplication $(getApplication)
+
+# Parallel
+#runApplication decomposePar
+#runParallel  $(getApplication)
+#runApplication reconstructPar
+
+#foamLog log.buoyantSimpleFoam
+
+#------------------------------------------------------------------------------

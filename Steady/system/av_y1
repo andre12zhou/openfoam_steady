@@ -1,0 +1,769 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  v2106  
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+av_y1
+{
+ 	// Mandatory entries
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+/*        operation           weightedAreaIntegrate;*/
+/*	weightField         phi;*/
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y1;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.1 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y2
+{
+	 // Mandatory entries
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y2;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.2 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y3
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y3;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.3 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y4
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y4;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.4 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y5
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y5;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.5 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y6
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y6;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.6 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y7
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y7;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.7 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y8
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y8;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.8 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y9
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y9;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 0.9 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y10
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y10;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.0 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y11
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y11;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.1 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y12
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y12;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.2 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y13
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y13;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.3 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y14
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y14;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.4 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y15
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y15;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.5 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y16
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y16;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.6 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y17
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y17;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.7 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y18
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y18;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.8 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y19
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y19;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 1.9 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y20
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y20;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.0 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y21
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y21;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.1 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+
+av_y22
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y22;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.2 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y23
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y23;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.3 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y24
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y24;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.4 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y25
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y25;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.5 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+av_y26
+{
+        type                surfaceFieldValue;
+        libs                ("libfieldFunctionObjects.so");
+        writeControl        timeStep;
+        log                 true;
+        writeFields         no;
+        surfaceFormat	    none; 
+	operation	    areaAverage;
+        //operation           weightedAreaIntegrate;
+	//weightField         phi;
+	fields		    (p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA);
+
+        regionType          sampledSurface;
+	name 		    av_y26;
+        sampledSurfaceDict
+	{
+
+		    type            cuttingPlane;
+		    planeType       pointAndNormal;
+		    pointAndNormalDict
+		    {
+		        point   (0.0 2.6 0.0);
+		        normal  (0 1 0);
+		    }
+	}
+
+}
+
+
+
+
+// ************************************************************************* //

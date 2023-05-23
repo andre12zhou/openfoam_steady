@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.1;
+
+boundaryField
+{
+    floor
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    ceiling
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    fixedWalls
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+
+    topTopBox
+    {
+        type            zeroGradient;
+    }
+
+    bottomBottomBox
+    {
+        type            zeroGradient;
+    }
+    inletWalls
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    outletWalls
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    topBottomBox
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    bottomBoxWalls
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    bottomTopBox
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }
+    topBoxWalls
+    {
+        type            kqRWallFunction;
+        value           uniform 0.1;
+    }    
+
+}
+
+
+// ************************************************************************* //

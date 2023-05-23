@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default steadyState;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default         none;
+    div(phi,U)      bounded Gauss limitedLinear 0.2;
+    div(phi,K)      bounded Gauss limitedLinear 0.2;
+    div(phi,h)      bounded Gauss limitedLinear 0.2;
+    div(phi,k)      bounded Gauss limitedLinear 0.2;
+    div(phi,omega)  bounded Gauss limitedLinear 0.2;
+    div(phi,sb)     bounded Gauss limitedLinear 0.2;
+    div(phi,s1)     bounded Gauss limitedLinear 0.2;
+    div(phi,s2)     bounded Gauss limitedLinear 0.2;
+    div(phi,s3)     bounded Gauss limitedLinear 0.2;
+    div(phi,s4)     bounded Gauss limitedLinear 0.2; 
+    div(phi,s5)     bounded Gauss limitedLinear 0.2;
+    div(phi,s6)     bounded Gauss limitedLinear 0.2;
+    div(phi,s7)     bounded Gauss limitedLinear 0.2;
+    div(phi,s8)     bounded Gauss limitedLinear 0.2;
+    div(phi,s9)     bounded Gauss limitedLinear 0.2; 
+    div(phi,LMA)    bounded Gauss limitedLinear 0.2;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+wallDist
+{
+    method meshWave;
+}
+
+// ************************************************************************* //

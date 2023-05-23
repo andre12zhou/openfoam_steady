@@ -1,0 +1,181 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantSimpleFoam;
+
+startFrom       latestTime;//startTime;
+
+//startTime       0;
+
+stopAt          endTime;
+
+endTime 50000;
+
+deltaT 1;
+
+writeControl    timeStep;
+
+writeInterval 1000;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  no;
+
+maxCo           10;
+
+functions
+{
+    #includeFunc  flowRatePatch(name=bottomBottomBox)
+    #includeFunc  flowRatePatch(name=topTopBox)
+
+	bottom1patch
+	{
+	    type            surfaceFieldValue;
+	    libs            ("libfieldFunctionObjects.so");
+
+	    writeFields     false;
+	    surfaceFormat   foam;
+
+	    regionType      patch;
+	    name            bottomBottomBox;
+
+	    operation       average;
+
+	    fields
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	}
+
+	top1patch
+	{
+	    type            surfaceFieldValue;
+	    libs            ("libfieldFunctionObjects.so");
+
+	    writeFields     false;
+	    surfaceFormat   foam;
+
+	    regionType      patch;
+	    name            topTopBox;
+
+	    operation       average;
+
+	    fields
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	}
+	volAverage
+	{
+	    // Mandatory entries (unmodifiable)
+	    type            volFieldValue;
+	    libs            (fieldFunctionObjects);
+
+	    // Mandatory entries (runtime modifiable)
+	    fields          
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	    operation       average;
+	    regionType      cellZone;
+	    name	    room;
+	    // Optional (inherited) entries
+	    writeFields     false;
+	    scalingFactor   1.0;
+	    writePrecision  8;
+	    writeToFile     true;
+	    useUserTime     true;
+	    enabled         true;
+	    log             true;
+	    executeControl  timeStep;
+	    executeInterval 50;
+	    writeControl    timeStep;
+	    writeInterval   50;
+	}
+
+    #includeFunc  scalarTransportb
+    #includeFunc  scalarTransport1
+    #includeFunc  scalarTransport2
+    #includeFunc  scalarTransport3
+    #includeFunc  scalarTransport4
+    #includeFunc  scalarTransport5
+    #includeFunc  scalarTransport6
+    #includeFunc  scalarTransport7
+    #includeFunc  scalarTransport8
+    #includeFunc  scalarTransport9
+    #includeFunc  scalarAoA
+
+}
+
+// ************************************************************************* //
