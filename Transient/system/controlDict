@@ -1,0 +1,318 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantPimpleFoam;
+
+startFrom       latestTime;//startTime;
+
+//startTime       0;
+
+stopAt          endTime;
+
+endTime 8600;
+
+deltaT 0.1;
+
+writeControl    adjustableRunTime;
+
+writeInterval 200;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable true;
+
+adjustTimeStep  yes;
+
+maxCo           1;
+
+functions
+{
+    #includeFunc  flowRatePatch(name=bottomBottomBox)
+    #includeFunc  flowRatePatch(name=topTopBox)
+	fieldAverage1
+	{
+            type            fieldAverage;
+            libs            ("libfieldFunctionObjects.so");
+            writeControl    writeTime;
+	    timeStart 	    5000;
+            fields
+            (
+                 U
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+
+                 p
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+
+                 T
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 sb
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s1
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s2
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s3
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s4
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s5
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s6
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s7
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s8
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 s9
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+                 LMA
+                 {
+                     mean        on;
+                     prime2Mean  on;
+                     base        time;
+                 }
+            );
+        }
+	bottom1patch
+	{
+	    type            surfaceFieldValue;
+	    libs            ("libfieldFunctionObjects.so");
+
+	    writeFields     false;
+	    surfaceFormat   foam;
+
+	    regionType      patch;
+	    name            bottomBottomBox;
+
+	    operation       average;
+
+	    fields
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	}
+
+	top1patch
+	{
+	    type            surfaceFieldValue;
+	    libs            ("libfieldFunctionObjects.so");
+
+	    writeFields     false;
+	    surfaceFormat   foam;
+
+	    regionType      patch;
+	    name            topTopBox;
+
+	    operation       average;
+
+	    fields
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	}
+	volAverage
+	{
+	    // Mandatory entries (unmodifiable)
+	    type            volFieldValue;
+	    libs            (fieldFunctionObjects);
+
+	    // Mandatory entries (runtime modifiable)
+	    fields          
+	    (
+		U
+		p
+		p_rgh
+		rho
+		T
+		sb
+		s1
+		s2
+		s3
+		s4
+		s5
+		s6
+		s7
+		s8
+		s9
+		LMA
+	    );
+	    operation       average;
+	    regionType      cellZone;
+	    name	    room;
+	    // Optional (inherited) entries
+	    writeFields     false;
+	    scalingFactor   1.0;
+	    writePrecision  8;
+	    writeToFile     true;
+	    useUserTime     true;
+	    enabled         true;
+	    log             true;
+	    executeControl  timeStep;
+	    executeInterval 50;
+	    writeControl    timeStep;
+	    writeInterval   50;
+	}
+
+	volAverageMean
+	{
+	    // Mandatory entries (unmodifiable)
+	    type            volFieldValue;
+	    libs            (fieldFunctionObjects);
+
+	    // Mandatory entries (runtime modifiable)
+	    fields          
+	    (
+		UMean
+		TMean
+		sbMean
+		s1Mean
+		s2Mean
+		s3Mean
+		s4Mean
+		s5Mean
+		s6Mean
+		s7Mean
+		s8Mean
+		s9Mean
+		LMAMean
+	    );
+	    operation       average;
+	    regionType      cellZone;
+	    name	    room;
+	    timeStart       5000; 
+	    // Optional (inherited) entries
+	    writeFields     false;
+	    scalingFactor   1.0;
+	    writePrecision  8;
+	    writeToFile     true;
+	    useUserTime     true;
+	    enabled         true;
+	    log             true;
+	    executeControl  timeStep;
+	    executeInterval 50;
+	    writeControl    timeStep;
+	    writeInterval   50;
+	}
+			
+    #includeFunc  scalarTransportb
+    #includeFunc  scalarTransport1
+    #includeFunc  scalarTransport2
+    #includeFunc  scalarTransport3
+    #includeFunc  scalarTransport4
+    #includeFunc  scalarTransport5
+    #includeFunc  scalarTransport6
+    #includeFunc  scalarTransport7
+    #includeFunc  scalarTransport8
+    #includeFunc  scalarTransport9
+    #includeFunc  scalarAoA
+
+
+}
+
+// ************************************************************************* //

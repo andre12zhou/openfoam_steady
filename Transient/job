@@ -1,0 +1,39 @@
+#!/bin/bash
+# Job name
+#PBS -N Transient 
+# Time required in hh:mm:ss
+#PBS -l walltime=24:00:00
+# Ressource requirements 
+#PBS -l select=1:ncpus=8:mem=96gb
+# Files to contain standard error and standard output
+#PBS -o stdout
+#PBS -e stderr
+
+echo Working Directory is $PBS_O_WORKDIR
+simname=Transient
+
+rm -f stdout* stderr* 
+
+module load openfoam/2012
+export FI_PROVIDER=sockets
+
+echo Start time is `date` > date
+
+
+
+mkdir $EPHEMERAL/$simname
+
+
+cp -r $PBS_O_WORKDIR/* $EPHEMERAL/$simname/
+cd $EPHEMERAL/$simname
+
+decomposePar
+
+mpiexec buoyantPimpleFoam -parallel -case $EPHEMERAL/$simname > log
+
+reconstructPar
+
+foamLog log
+# End time
+echo End time is `date` >> date
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+postProcess -latestTime -fields '(p U p_rgh T sb s1 s2 s3 s4 s5 s6 s7 s8 s9 LMA)' -funcs '(surfacesY surfacesZ surfacesX av_y1 av_y2 av_y3 av_y4 av_y5 av_y6 av_y7 av_y8 av_y9 av_y10 av_y11 av_y12 av_y13 av_y14 av_y15 av_y16 av_y17 av_y18 av_y19 av_y20 av_y21 av_y22 av_y23 av_y24 av_y25 av_y26)'
+buoyantSimpleFoam -postProcess -latestTime -funcs '(surfacesY)'
+#fU_y1 fU_y2 fU_y3 fU_y4 fU_y5 fU_y6 fU_y7 fU_y8 fU_y9 fU_y10 fU_y11 fU_y12 fU_y13 fU_y14 fU_y15 fU_y16 fU_y17 fU_y18 fU_y19 fU_y20 fU_y21 fU_y22 fU_y23 fU_y24 fU_y25 fU_y26)'
+#postProcess -latestTime -func "test_y2"
+
+#------------------------------------------------------------------------------

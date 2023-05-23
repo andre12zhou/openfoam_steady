@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      alphat;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    floor
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    ceiling
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    fixedWalls
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    topTopBox
+    {
+        type            zeroGradient;
+    }
+    bottomBottomBox
+    {
+        type            zeroGradient;
+    }
+    inletWalls
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    outletWalls
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    topBottomBox
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    bottomBoxWalls
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    bottomTopBox
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+    topBoxWalls
+    {
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
